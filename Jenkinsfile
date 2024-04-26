@@ -1,9 +1,12 @@
 pipeline {
   agent any
   stages {
-    stage('echo') {
+    stage('build') {
+      environment {
+        CI = 'true'
+      }
       steps {
-        bat(script: 'echobat', encoding: 'echo "hello world"', label: 'hello world', returnStatus: true, returnStdout: true)
+        echo 'hello world'
       }
     }
 
